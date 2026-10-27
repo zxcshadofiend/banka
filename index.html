@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#190f29">
+<title>Баночка нежности ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marck+Script&display=swap');
+
+:root {
+  --bg: #190f29;
+  --panel: #281938;
+  --panel2: #34203f;
+  --pink: #f2b8d5;
+  --rose: #e18dbb;
+  --gold: #f4d69a;
+  --text: #fff1fa;
+  --muted: #c5a8c9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background:
+    radial-gradient(ellipse at 50% 0%, #51305d 0%, transparent 42%),
+    radial-gradient(ellipse at 0% 90%, #332047 0%, transparent 40%),
+    var(--bg);
+}
+
+button { font: inherit; }
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  color: var(--gold);
+  opacity: .65;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.8); }
+  to { opacity: .95; transform: scale(1.2); }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 28px, 720px);
+  margin: auto;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+
+h1 {
+  margin: 12px 0;
+  font-family: 'Marck Script', cursive;
+  font-weight: 400;
+  font-size: clamp(42px, 9vw, 70px);
+  color: var(--pink);
+  text-shadow: 0 0 28px #e18dbb35;
+}
+
+.subtitle {
+  max-width: 430px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.ornament {
+  margin: 18px;
+  color: var(--gold);
+  letter-spacing: 9px;
+}
+
+.jar-area {
+  width: 240px;
+  height: 275px;
+  margin: 25px auto 0;
+  display: grid;
+  place-items: center;
+}
+
+.jar {
+  position: relative;
+  width: 180px;
+  height: 205px;
+  padding: 0;
+  border: 2px solid #fff1fa;
+  border-radius: 30px 30px 42px 42px;
+  cursor: pointer;
+  background:
+    linear-gradient(100deg,
+      #ffffffb0,
+      #f5c9e944 23%,
+      #f9e6ff12 55%,
+      #ffffff70);
+  box-shadow:
+    inset 8px 0 16px #ffffff42,
+    inset -8px 0 16px #b979bd25,
+    0 0 28px #d98ecb22,
+    0 18px 45px #08051170;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.jar:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 38px #e18dbb45, 0 18px 45px #08051170;
+}
+
+.jar:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.jar-lid {
+  position: absolute;
+  top: -19px;
+  left: 28px;
+  width: 118px;
+  height: 27px;
+  border: 2px solid #fff1fa;
+  border-radius: 7px;
+  background: repeating-linear-gradient(
+    90deg, #dca4c8 0 9px, #f7ddeb 9px 17px
+  );
+  box-shadow: 0 4px 10px #08051140;
+}
+
+.jar-bow {
+  position: absolute;
+  top: -5px;
+  left: 62px;
+  width: 27px;
+  height: 20px;
+  border: 3px solid var(--gold);
+  border-radius: 50% 50% 10% 50%;
+  transform: rotate(-25deg);
+}
+
+.jar-bow::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: -2px;
+  width: 27px;
+  height: 20px;
+  border: 3px solid var(--gold);
+  border-radius: 50% 50% 50% 10%;
+  transform: rotate(48deg);
+}
+
+.notes-inside {
+  position: absolute;
+  inset: 25px 9px 12px;
+  overflow: hidden;
+  border-radius: 22px 22px 30px 30px;
+}
+
+.paper {
+  position: absolute;
+  width: 48px;
+  height: 35px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px #30182c40;
+}
+
+.paper:nth-child(1) { left: 5px; bottom: 12px; background: #f6bfdc; transform: rotate(-22deg); }
+.paper:nth-child(2) { left: 43px; bottom: 8px; background: #ffe6a8; transform: rotate(12deg); }
+.paper:nth-child(3) { right: 4px; bottom: 17px; background: #d7c4ff; transform: rotate(25deg); }
+.paper:nth-child(4) { left: 20px; bottom: 48px; background: #fff4fb; transform: rotate(7deg); }
+.paper:nth-child(5) { right: 21px; bottom: 52px; background: #edafd0; transform: rotate(-13deg); }
+.paper:nth-child(6) { left: 53px; bottom: 40px; background: #cfc0ff; transform: rotate(-4deg); }
+.paper:nth-child(7) { left: 5px; bottom: 80px; background: #fbe0a6; transform: rotate(14deg); }
+.paper:nth-child(8) { right: 5px; bottom: 83px; background: #f6d4e7; transform: rotate(-18deg); }
+.paper:nth-child(9) { left: 55px; bottom: 91px; background: #fff6fa; transform: rotate(9deg); }
+
+.jar-heart {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  right: 0;
+  color: #fff5fc;
+  font-size: 38px;
+  text-shadow: 0 0 15px #fff;
+}
+
+.jar-label {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  color: #57314e;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.instruction {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.instruction span { color: var(--pink); }
+
+.counter {
+  margin: 23px auto 10px;
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.progress {
+  width: min(100%, 320px);
+  height: 5px;
+  margin: 0 auto 22px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff20;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--rose), var(--gold));
+  transition: width .35s;
+}
+
+.note-card {
+  position: relative;
+  width: min(100%, 470px);
+  min-height: 205px;
+  margin: 20px auto;
+  padding: 27px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f2b8d54d;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #382342, #25162f);
+  box-shadow: 0 15px 45px #08051155, inset 0 1px #ffffff0d;
+}
+
+.note-number {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.note-text {
+  margin: 16px 0;
+  color: #fff2fa;
+  font-size: clamp(24px, 5vw, 32px);
+  line-height: 1.4;
+  transition: opacity .18s, transform .18s;
+}
+
+.note-from {
+  color: var(--pink);
+  font-family: 'Marck Script', cursive;
+  font-size: 24px;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px auto;
+}
+
+.btn {
+  min-height: 46px;
+  padding: 11px 18px;
+  border: 1px solid #e8b8d84d;
+  border-radius: 999px;
+  background: #34213f;
+  color: #f7dcec;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: #473052;
+}
+
+.btn-primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, #d58ab7, #a983c9);
+  color: #211329;
+  font-weight: 600;
+  box-shadow: 0 5px 20px #d58ab733;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #e9a8ce, #c1a2e8);
+}
+
+.btn-reset {
+  border-color: #f4d69a65;
+  color: var(--gold);
+}
+
+.final-letter {
+  width: min(100%, 470px);
+  margin: 24px auto;
+  padding: 28px 22px;
+  border: 1px solid #f2b8d54d;
+  border-radius: 22px;
+  background: #281938;
+  color: #f8eaf5;
+  font-size: 21px;
+  line-height: 1.75;
+  white-space: pre-line;
+  box-shadow: 0 15px 45px #08051155;
+}
+
+.final-title {
+  margin-bottom: 15px;
+  color: var(--gold);
+  font-family: 'Marck Script', cursive;
+  font-size: 38px;
+}
+
+.footer {
+  margin-top: 38px;
+  color: #bba2c0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.footer-heart {
+  color: var(--pink);
+  font-size: 26px;
+}
+
+.hidden { display: none !important; }
+
+@media (max-width: 480px) {
+  .container { padding-top: 30px; }
+  .btn { padding: 10px 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="stars" aria-hidden="true"></div>
+
+<main class="container">
+  <div class="eyebrow">собрано с любовью</div>
+
+  <h1>Баночка нежности</h1>
+
+  <p class="subtitle">
+    Для моей принцессы,<br>
+    которой я хочу подарить немного тепла. ♡
+  </p>
+
+  <div class="ornament">✧ · ♡ · ✧</div>
+
+  <div class="jar-area">
+    <button class="jar" id="jar" aria-label="Достать следующую записочку">
+      <span class="jar-lid"></span>
+      <span class="jar-bow"></span>
+
+      <span class="notes-inside" aria-hidden="true">
+        <span class="paper"></span><span class="paper"></span>
+        <span class="paper"></span><span class="paper"></span>
+        <span class="paper"></sp
+            an><span class="paper"></span>
+        <span class="paper"></span><span class="paper"></span>
+        <span class="paper"></span>
+      </span>
+
+      <span class="jar-heart"></span>
+      <span class="jar-label">ДЛЯ МОЕЙ ПРИНЦЕССЫ</span>
+    </button>
+  </div>
+
+  <div class="instruction">Нажми на баночку, чтобы достать записочку <span></span></div>
+
+  <div class="counter" id="counter" aria-live="polite">Твоя первая записочка</div>
+
+  <div class="progress">
+    <div class="progress-fill" id="progress"></div>
+  </div>
+
+  <section class="note-card" aria-live="polite">
+    <div class="note-number" id="noteNumber">маленькое послание для тебя</div>
+    <div class="note-text" id="noteText">Ты заслуживаешь столько нежности, сколько звёзд на небе.</div>
+    <div class="note-from">твой человек</div>
+  </section>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" id="nextBtn">Достать записочку</button>
+    <button class="btn" id="sadBtn">Мне грустно</button>
+    <button class="btn btn-reset" id="resetBtn">Начать сначала</button>
+  </div>
+
+  <section class="final-letter hidden" id="finalLetter">
+    <div class="final-title">Моей принцессе</div>
+    Я хочу, чтобы даже в те дни, когда тебе грустно,
+    ты помнила, насколько ты дорога мне.
+
+    Мне хочется быть рядом, заботиться о тебе,
+    смешить тебя и создавать вместе с тобой
+    воспоминания, которые мы будем беречь.
+
+    А пока нас разделяют километры,
+    пусть эта маленькая баночка напоминает тебе,
+    что где-то есть человек, который очень тебя любит.
+
+    <div class="final-title" style="margin-top:18px">Обнимаю тебя.</div>
+  </section>
+
+  <div class="footer">
+    <div class="footer-heart">♡</div>
+    создано специально для одной особенной кисы
+  </div>
+</main>
+
+<script>
+const notes = [
+"Ты заслуживаешь столько нежности, сколько звёзд на небе.",
+"Даже на расстоянии ты остаёшься очень близким мне человеком.",
+"Мне хочется, чтобы сегодня тебе было хоть чуточку легче.",
+"Твоя улыбка — одна из моих любимых вещей на свете.",
+"Тебе не нужно быть сильной каждую минуту. Можно просто отдыхать.",
+"Если бы объятия можно было отправлять посылкой, я бы отправил тебе тысячу.",
+"Ты делаешь мой мир теплее, просто будучи в нём.",
+"Я бы сейчас принёс тебе чай и укутал в самое мягкое одеяло.",
+"Ты достойна заботы не только в хорошие дни, но и в самые трудные.",
+"Мне нравится узнавать тебя снова и снова.",
+"Пусть сегодня у тебя будет хотя бы одна маленькая причина улыбнуться.",
+"Ты не обязана отвечать быстро или развлекать меня. Просто береги себя.",
+"Я очень ценю все наши разговоры и маленькие общие моменты.",
+"Ты — человек, которого хочется беречь.",
+"Пусть это маленькое послание будет виртуальным поцелуем в лоб.",
+"Я верю, что впереди у нас ещё много красивых и интересных воспоминаний.",
+"Даже обычный день с тобой может стать особенным.",
+"Ты можешь открывать эту баночку каждый раз, когда захочется немного тепла.",
+"Мне хочется разделять с тобой и большие приключения, и тихие вечера.",
+"Сегодня разрешается ничего не успевать и просто отдыхать.",
+"Ты умеешь делать даже обычный разговор особенным.",
+"Мне хочется однажды гулять с тобой без спешки и смотреть на закат.",
+"Ты заслуживаешь добрых слов просто потому, что ты есть.",
+"Я люблю наши маленькие шутки, которые понимаем только мы.",
+"Если бы я мог, я бы сейчас принёс тебе твоё любимое угощение.",
+"Мне интересно всё, что ты хочешь мне рассказать.",
+"Ты можешь быть собой рядом со мной.",
+"Надеюсь, сегодня у тебя получится хоть немного отдохнуть.",
+"Я хочу, чтобы у тебя было много поводов для радости.",
+"Мне нравится, что у нас есть своя маленькая история.",
+"Ты заслуживаешь, чтобы я купил тебе Mission S.",
+"Я хочу узнавать о твоих мечтах и помогать им сбываться.",
+"Ты достойна мягкости, терпения и заботы.",
+"Мне хочется однажды вместе с тобой увидеть новые города.",
+"Я с удовольствием слушал бы твои истории ещё и ещё.",
+"Пусть этот листочек напомнит: ты важна.",
+"Я ценю твою искренность.",
+"Мне нравится, когда мы смеёмся над какой-нибудь ерундой.",
+"Я хочу однажды приготовить тебе завтрак.",
+"Пусть тебе приснится что-нибудь доброе и красивое.",
+"Надеюсь, впереди у нас будет много совместных фотографий.",
+"Ты можешь рассказать мне, что у тебя на душе.",
+"Мне хочется однажды держать тебя за руку во время прогулки.",
+"Ты заслуживаешь не только больших сюрпризов, но и ежедневной доброты.",
+"Я благодарен за каждый момент, которым мы делимся.",
+"Хочу, чтобы однажды расстояние между нами стало просто воспоминанием.",
+"Однажды у тебя будет кольцо на безымянном пальце.",
+"Мне нравится представлять наши будущие приключения.",
+"Пусть в твоём дне найдётся что-нибудь уютное.",
+"Я хочу, чтобы рядом со мной ты чувствовала себя принятой.",
+"У тебя есть право на плохое настроение, и это нормально.",
+"Мне хочется делиться с тобой любимыми песнями.",
+"Однажды мы сможем выбирать фильм, лежа рядом на одной кровате.",
+"Мне приятно узнавать, что тебе нравится и что тебя вдохновляет.",
+"Ты заслуживаешь, чтобы к тебе относились бережно.",
+"Пусть эта записочка мысленно укроет тебя тёплым пледом.",
+"Я хочу чаще создавать для тебя приятные неожиданности.",
+"Мне нравятся наши разговоры перед сном.",
+"Твоя радость важна для меня.",
+"Не обязательно улыбаться, если тебе сейчас не до улыбок.",
+"Я хочу, чтобы мы могли говорить обо всём, что для нас важно.",
+"Пусть сегодня тебе попадётся что-нибудь хорошее.",
+"Я бы с радостью прогулялся с тобой под лёгким дождём.",
+"Мне хочется вместе выбрать маленький сувенир из поездки.",
+"Я хочу узнавать твои любимые места.",
+"Ты можешь просто побыть собой — этого достаточно.",
+"Мне приятно думать о том, что ещё мы попробуем вместе.",
+"Пусть тебе станет чуточку теплее от этих слов.",
+"Я хочу хранить наши фотографии и смешные переписки.",
+"Мне нравится, когда ты рассказываешь о том, что тебя увлекает.",
+"Я хочу поддерживать твои мечты, а не выбирать их за тебя.",
+"Даже если день не задался, он не определяет всё остальное.",
+"Ты заслуживаешь времени на себя и свои желания.",
+"Мне хочется однажды показать тебе места, которые я люблю.",
+"Пусть в твоей жизни будет больше спокойных и счастливых дней.",
+"Я хочу, чтобы у нас было много историй со словами «помнишь, как…».",
+"Мне нравится придумывать, чем мы займёмся при встрече.",
+"Ты можешь попросить о поддержке, когда она тебе нужна.",
+"Я хочу разделять с тобой маленькие победы.",
+"Пусть эта записочка станет маленькой звёздочкой в твоём дне.",
+"Я бы с радостью послушал с тобой дождь за окном.",
+"Мне хочется подарить тебе книгу, которую мы потом обсудим.",
+"Я хочу однажды показать тебе красивое ночное небо.",
+"Ты заслуживаешь любви, которая проявляется в поступках.",
+"Мне нравится, что у нас могут быть свои маленькие традиции.",
+"Пусть у тебя будет время на любимые занятия.",
+"Я хочу узнавать, какие песни заставляют тебя подпевать.",
+"Мне хочется однажды встретить с тобой рассвет.",
+"Ты можешь не быть продуктивной каждый день.",
+"Я хочу, чтобы у нас было много поводов гордиться друг другом.",
+"Пусть в твоём мире будет побольше цветов и приятных сюрпризов.",
+"Я хочу поддерживать тебя, когда ты пробуешь что-то новое.",
+"Мне хочется вместе с тобой смеяться до слёз.",
+"Ты важна не только за то, что делаешь, но и просто сама по себе.",
+"Пусть тебе станет немного спокойнее после этой записочки.",
+"Я хочу однажды устроить тебе настоящее маленькое приключение.",
+"Мне нравится думать о наших будущих прогулках.",
+"Я хочу, чтобы ты знала: своими чувствами можно делиться со мной.",
+"Пусть сегодня рядом окажется что-нибудь, что тебя порадует.",
+"Я с нетерпением жду новых воспоминаний, которые мы создадим вместе."
+];
+
+const sadNotes = [
+  "Принцесса, пожалуйста, помни: даже в самые пасмурные дни ты остаёшься моим солнышком.",
+  "Если бы я мог сейчас оказаться рядом, я бы просто посидел с тобой и напомнил, как сильно ты мне дорога.",
+  "Тебе не обязательно сегодня быть сильной. Можно просто отдохнуть, моя хорошая.",
+  "Один плохой день не делает твою жизнь плохой. Впереди ещё столько прекрасного.",
+  "Я верю в тебя даже в те моменты, когда тебе самой трудно в себя верить.",
+  "Ты заслуживаешь нежности, заботы и спокойствия. Не забывай об этом, принцесса.",
+  "Представь, что эта записочка — маленькое объятие, которое преодолело расстояние ради тебя.",
+  "Сегодня можно ничего не успеть. Главное, чтобы тебе стало хоть чуточку легче.",
+  "Ты не обязана улыбаться каждую минуту, чтобы оставаться самым прекрасным человеком в моих глазах.",
+  "Где-то далеко есть человек, который очень хочет, чтобы ты была счастлива. И это я.",
+  "Пусть эта записочка напомнит тебе: ты не одна, даже когда мы далеко друг от друга.",
+  "Я бы подарил тебе немного своего спокойствия, если бы мог, чтобы тебе стало легче.",
+  "Ты уже столько всего преодолела. Пожалуйста, гордись собой хотя бы немножечко.",
+  "Плохое настроение — это чувство, а не вся твоя жизнь. Оно обязательно изменится.",
+  "Моя принцесса, разреши себе сегодня быть просто человеком, которому нужен отдых.",
+  "Если день оказался тяжёлым, пусть вечер будет мягким, тихим и уютным. 🕯️",
+  "Я хочу, чтобы ты относилась к себе так же бережно, как относишься к тем, кого любишь.",
+  "Ты не должна заслуживать любовь своими достижениями. Ты достойна заботы просто потому, что ты есть.",
+  "Пусть все тревожные мысли хотя бы ненадолго станут тише. Ты заслуживаешь покоя.",
+  "Если сегодня получилось только проснуться и прожить день — это тоже уже немало.",
+  "Мысленно отправляю тебе тысячу маленьких сердечек через все километры между нами.",
+  "Я очень хочу, чтобы ты однажды посмотрела на себя моими глазами и увидела, какая ты замечательная.",
+  "Не ругай себя за то, что тебе грустно. У твоих чувств есть право быть.",
+  "Пожалуйста, выпей немного воды, укройся потеплее и позаботься о себе. Ты важна.",
+  "Даже если сейчас всё кажется запутанным, тебе не нужно решать всё сразу. По одному маленькому шагу.",
+  "Я хочу, чтобы в твоей жизни было больше дней, когда ты смеёшься от души. И надеюсь, что смогу этому помочь.",
+  "Ты можешь отложить все дела и немного передохнуть. Мир подождёт.",
+  "Пусть эта маленькая бумажка станет напоминанием, что хорошее ещё обязательно случится.",
+  "Мне хочется, чтобы ты чаще замечала не только свои ошибки, но и всё хорошее, что в тебе есть.",
+  "Ты достойна добрых слов не только в праздники и не только тогда, когда всё получается.",
+  "Если бы расстояние можно было измерить в любви, между нами его совсем не было бы.",
+  "Не нужно торопить себя. У каждого человека свой темп, и твой тоже правильный.",
+  "Сегодня попробуй найти хотя бы одну маленькую приятность: любимую песню, вкусный чай или тёплый плед.",
+  "Ты гораздо больше, чем твои переживания, усталость и плохие дни.",
+  "Я надеюсь, что скоро у нас появится ещё одно счастливое воспоминание, о котором мы будем говорить с улыбкой.",
+  "Пусть тебе приснится что-то доброе, а завтра встретит тебя чуть более ласково.",
+  "Ты не обязана справляться со всем в одиночку. Можно попросить близкого человека побыть рядом.",
+  "Я бы очень хотел сейчас услышать, как ты рассказываешь мне обо всём, что у тебя на душе.",
+  "Помни: отдых — это не слабость и не лень. Это забота о себе.",
+  "Пусть сегодня у тебя будет хотя бы один повод тихонько улыбнуться.",
+  "Ты заслуживаешь отношений, в которых можно быть собой и не бояться показать грусть.",
+  "Я очень ценю тебя — не только за радостные моменты, но и за твою искренность.",
+  "Когда тебе станет легче, мы ещё столько всего придумаем, обсудим и переживём вместе.",
+  "Пожалуйста, не сравнивай свой сегодняшний день с чьей-то красивой картинкой. Твоя жизнь — твоя история.",
+  "Даже маленький шаг вперёд остаётся шагом. Не обесценивай свои старания.",
+  "Если сегодня хочется тишины, пусть будет тишина. Если хочется поговорить, пусть рядом найдётся слушатель.",
+  "Я желаю тебе мягкого утра, спокойного дня и вечера, в котором станет немного легче.",
+  "Ты приносишь в этот мир что-то своё, особенное, чего не может принести никто другой.",
+  "Пусть эта записочка напомнит: тебе можно замедлиться, передохнуть и начать снова тогда, когда будешь готова.",
+  "И последняя записочка на сегодня: ты очень дорога мне. Надеюсь, впереди у тебя много поводов для счастья. Мысленно посылаю тебе нежность."
+];
+
+const jar = document.getElementById('jar');
+const nextBtn = document.getElementById('nextBtn');
+const sadBtn = document.getElementById('sadBtn');
+const resetBtn = document.getElementById('resetBtn');
+const noteText = document.getElementById('noteText');
+const noteNumber = document.getElementById('noteNumber');
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+const finalLetter = document.getElementById('finalLetter');
+
+let order = [];
+let index = -1;
+let currentText = notes[0];
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function setNote(text, label, count) {
+  currentText = text;
+  noteText.style.opacity = '0';
+  noteText.style.transform = 'translateY(5px)';
+
+  setTimeout(() => {
+    noteText.textContent = text;
+    noteNumber.textContent = label;
+    noteText.style.opacity = '1';
+    noteText.style.transform = 'translateY(0)';
+  }, 160);
+
+  counter.textContent = count;
+
+  jar.animate(
+    [
+      { transform: 'rotate(0deg)' },
+      { transform: 'rotate(-5deg)' },
+      { transform: 'rotate(4deg)' },
+      { transform: 'rotate(0deg)' }
+    ],
+    { duration: 420, easing: 'ease-out' }
+  );
+}
+
+function nextNote() {
+  if (index >= notes.length - 1) {
+    finalLetter.classList.remove('hidden');
+    finalLetter.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    noteNumber.textContent = 'все записочки прочитаны';
+    noteText.textContent = 'Ты прочитала все 100 записочек. Но нежность на этом не заканчивается. ♡';
+    counter.textContent = '100 из 100 — целая баночка тепла';
+    progress.style.width = '100%';
+    nextBtn.textContent = 'Все записочки прочитаны ♡';
+    return;
+  }
+
+  index++;
+  const n = order[index];
+
+  setNote(
+    notes[n],
+    'записочка № ' + (index + 1),
+    'Открыто ' + (index + 1) + ' из ' + notes.length
+  );
+
+  progress.style.width = ((index + 1) / notes.length * 100) + '%';
+
+  if (index === notes.length - 1) {
+    nextBtn.textContent = 'Завершить ♡';
+  }
+}
+
+function resetAll() {
+  order = shuffle(Array.from({ length: notes.length }, (_, i) => i));
+  index = -1;
+
+  counter.textContent = 'Баночка снова полна записочек ♡';
+  progress.style.width = '0%';
+
+  noteNumber.textContent = 'маленькое послание для тебя';
+  noteText.textContent = 'Все записочки снова перемешаны. Какую достанем первой? ♡';
+
+  finalLetter.classList.add('hidden');
+  nextBtn.textContent = 'Достать записочку ♡';
+}
+
+let sadOrder = [];
+let sadIndex = 0;
+
+function shuffleSadNotes() {
+  sadOrder = [...sadNotes];
+
+  for (let i = sadOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [sadOrder[i], sadOrder[j]] = [sadOrder[j], sadOrder[i]];
+  }
+
+  sadIndex = 0;
+}
+
+function sadNote() {
+  if (sadOrder.length === 0 || sadIndex >= sadOrder.length) {
+    shuffleSadNotes();
+  }
+
+  setNote(sadOrder[sadIndex]);
+  sadIndex++;
+}
+
+jar.addEventListener('click', nextNote);
+nextBtn.addEventListener('click', nextNote);
+sadBtn.addEventListener('click', sadNote);
+resetBtn.addEventListener('click', resetAll);
+
+function createStars() {
+  const container = document.getElementById('stars');
+
+  for (let i = 0; i < 40; i++) {
+    const star = document.createElement('span');
+    star.className = 'star';
+    star.textContent = Math.random() > .5 ? '✧' : '·';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.fontSize = (8 + Math.random() * 14) + 'px';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    container.appendChild(star);
+  }
+}
+
+createStars();
+shuffleSadNotes();
+resetAll();
+</script>
+</body>
+</html>
